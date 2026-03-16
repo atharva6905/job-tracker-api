@@ -23,7 +23,7 @@ Job Application Tracker API is a FastAPI backend for managing a personal job sea
 | DB | PostgreSQL |
 | ORM | SQLAlchemy 2.0 |
 | Migrations | Alembic |
-| Auth | JWT with `python-jose`, password hashing with `passlib` |
+| Auth | JWT with `python-jose`, password hashing with `bcrypt` |
 | Testing | Pytest, FastAPI TestClient, HTTPX |
 | Linting | Ruff |
 | Container | Docker, Docker Compose |
@@ -32,29 +32,31 @@ Job Application Tracker API is a FastAPI backend for managing a personal job sea
 ## Local Setup
 1. Clone the repository.
    ```bash
-   git clone <your-repo-url>
-   cd job-tracker
+   git clone https://github.com/atharva6905/job-tracker-api.git
+   cd job-tracker-api
    ```
 2. Copy the example environment file.
    ```bash
    cp .env.example .env
    ```
-3. Start dependencies.
+3. Fill in the values in `.env` (see Environment Variables below).
+4. Start dependencies.
    ```bash
    docker compose up -d postgres
    ```
-4. Install dependencies locally.
+5. Install dependencies locally.
    ```bash
    pip install ".[dev]"
    ```
-5. Run migrations.
+6. Run migrations.
    ```bash
    alembic upgrade head
    ```
-6. Start the API server.
+7. Start the API server.
    ```bash
    uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
    ```
+8. Open the interactive docs at `http://localhost:8000/docs`.
 
 Optional full Docker run:
 ```bash
@@ -68,6 +70,11 @@ docker compose up --build
 | `SECRET_KEY` | Secret used to sign JWT access tokens | `change-me-to-a-long-random-secret-key` |
 | `ALGORITHM` | JWT signing algorithm | `HS256` |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | Access token lifetime in minutes | `30` |
+
+Generate a secure secret key with:
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
 
 ## Migrations
 Run the latest migrations with:
@@ -159,4 +166,4 @@ erDiagram
 ```
 
 ## Docs Screenshot
-Placeholder: add a `/docs` Swagger UI screenshot here.
+![Swagger UI](docs/swagger.png)
