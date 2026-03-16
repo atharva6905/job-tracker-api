@@ -1,0 +1,33 @@
+# Environment variables 
+.env
+
+# Virtual environment
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# Pytest
+.pytest_cache/
+
+# Ruff
+.ruff_cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
