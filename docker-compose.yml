@@ -8,6 +8,8 @@ services:
         condition: service_healthy
     env_file:
       - .env
+    environment:
+      DATABASE_URL: postgresql://tracker:tracker@postgres:5432/tracker
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
   postgres:
@@ -28,3 +30,4 @@ services:
 
 volumes:
   postgres_data:
+  
