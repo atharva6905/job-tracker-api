@@ -71,10 +71,6 @@ docker compose up --build
 | `ALGORITHM` | JWT signing algorithm | `HS256` |
 | `ACCESS_TOKEN_EXPIRE_MINUTES` | Access token lifetime in minutes | `30` |
 
-Generate a secure secret key with:
-```bash
-python -c "import secrets; print(secrets.token_hex(32))"
-```
 
 ## Migrations
 Run the latest migrations with:
@@ -164,6 +160,3 @@ erDiagram
         datetime created_at
     }
 ```
-
-## Docs Screenshot
-![Swagger UI](docs/swagger.png)
