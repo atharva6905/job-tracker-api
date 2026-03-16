@@ -1,3 +1,5 @@
+![CI](https://github.com/atharva6905/job-tracker-api/actions/workflows/ci.yml/badge.svg)
+
 # Job Application Tracker API
 
 ## Project Overview
